@@ -22,8 +22,8 @@ exports.config = {
   // protractor is called.
 
   // specs: ['../Tests/example_spec.js'],
-  // specs: ['../Tests/calculator.js'],
-  specs: ["../Tests/calculatorPOM.js"],
+  specs: ['../Tests/calculator.js'],
+  // specs: ["../Tests/calculatorPOM.js"],
 
   // Options to be passed to Jasmine.
   jasmineNodeOpts: {

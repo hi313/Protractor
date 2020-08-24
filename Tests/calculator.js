@@ -1,9 +1,21 @@
-describe('calculator website', function () {
+// Test Suite :
+// Only those test suite will be executed which have "f" before describe :
+fdescribe('calculator website', function () {
 
     browser.manage().window().maximize();
     //browser.manage().timeouts().implicitlyWait(30000);
 
-    it('test', function () {
+    beforeAll(function(){
+        console.log('It is displayed only once before all test cases');
+    })
+
+    beforeEach(function(){
+        console.log('It is displayed every time before each test cases');
+    })
+
+    // Test cases or Scripts :
+    // Only focussed test case will be executed - "fit"
+    fit('test case 1', function () {
         
         browser.get('http://juliemr.github.io/protractor-demo/');
         element(by.model('first')).sendKeys('1');
@@ -27,4 +39,47 @@ describe('calculator website', function () {
         browser.sleep(2000);
        
     });
+
+    // this test case will not be displayed because it does not have focuss "f" before it :
+    it('Second test case', function(){
+        console.log("1 Test Suite - Second Test Case")
+    })
+
+    // this test case will be temporarily disabled because it has "x" before it :
+    xit('Third test case', function(){
+        console.log("1 Test Suite - Third Test Case")
+    })
+
+    afterEach(function(){
+        console.log('It is displayed every time after each test cases');
+    })
+
+    afterAll(function(){
+        console.log('It is displayed only once after all test cases');
+    })
+});
+
+// this will not be displayed because it does not have focuss "f" before describe :
+describe('Second Test Suite', function(){
+    it('First test case', function(){
+        console.log("2 Test Suite - First test case")
+        var a = true;
+        var b = true;
+        var c = 10;
+        var d = "jasmine";
+        expect(a).toBe(true);
+        expect(b).not.toBe(true);
+        expect(c).toEqual(10);
+        expect(d).toBeNull();
+        // expect(d).not.toBeNull();
+        expect(d).toContain("jas");
+        // expect(d).not.toContain("jas");
+    })
+});
+
+// This is temporarily disabled as it has "x" before describe :
+xdescribe('Third Test Suite', function(){
+    it('First test case', function(){
+        console.log("3 Test Suite - First test case")
+    })
 });

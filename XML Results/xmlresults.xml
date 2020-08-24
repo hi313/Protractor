@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites disabled="1" errors="0" failures="0" tests="2" time="12.416">
+ <testsuite name="calculator website" timestamp="2020-08-24T19:15:59" hostname="localhost" time="12.415" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="calculator website" name="test case 1" time="11.983" />
+ </testsuite>
+ <testsuite name="Second Test Suite" timestamp="2020-08-24T19:16:12" hostname="localhost" time="0.001" errors="0" tests="1" skipped="0" disabled="1" failures="0">
+  <testcase classname="Second Test Suite" name="First test case" time="0.001">
+   <skipped />
+  </testcase>
+ </testsuite>
+</testsuites>
