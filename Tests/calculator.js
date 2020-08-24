@@ -18,7 +18,7 @@ describe('calculator website', function () {
 
         // Drop Down Way 3 :
         element.all(by.options('value for (key, value) in operators')).get(0).click();
-        browser.sleep(2000);
+        browser.sleep(3000);
 
         element(by.model('second')).sendKeys('2');
         element(by.css('[ng-click="doAddition()"]')).click();
