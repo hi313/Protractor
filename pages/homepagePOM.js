@@ -41,8 +41,9 @@ let homepage = function(){
     };
 
     this.verifyResult = function(result){
-        let output = element(by.cssContainingText('.ng-binding', result));
-        expect(output.getText()).toEqual(result);
+        expect(element(by.binding('latest')).getText()).toEqual(result);
+        // let output = element(by.cssContainingText('.ng-binding', result));
+        // expect(output.getText()).toEqual(result);
         browser.sleep(2000);
     };
 };

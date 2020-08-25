@@ -18,24 +18,41 @@ fdescribe('calculator website', function () {
     fit('test case 1', function () {
         
         browser.get('http://juliemr.github.io/protractor-demo/');
-        element(by.model('first')).sendKeys('1');
+
+        browser.getTitle().then(title => { console.log("The Page Title is : " + title); })
+        expect(browser.getTitle()).toEqual('Super Calculator');
+        browser.getCurrentUrl().then(url => { console.log("The Current URL is : " + url); })
+        var text = element(by.tagName('h3')).getText();
+        text.then(elementText =>{ console.log("Heading is: " + elementText); })
         
+        element(by.model('first')).sendKeys('1');
+        // element(by.model('first')).clear();
+        
+        // Only When "ng-model" or "ng-options" or "option" is present :
         // Drop Down Way 1 :
-        element(by.model('operator')).element(by.css("option[value='MULTIPLICATION']")).click();
-        browser.sleep(2000);
+        // element(by.model('operator')).element(by.css("option[value='MULTIPLICATION']")).click();
+        // browser.sleep(2000);
 
         // Drop Down Way 2 :
-        element(by.cssContainingText('option', '%')).click();
-        browser.sleep(2000);
+        // element(by.cssContainingText('option', '%')).click();
+        // browser.sleep(2000);
 
         // Drop Down Way 3 :
-        element.all(by.options('value for (key, value) in operators')).get(0).click();
-        browser.sleep(3000);
+        // element.all(by.options('value for (key, value) in operators')).get(0).click();
+        // browser.sleep(2000);
 
         element(by.model('second')).sendKeys('2');
         element(by.css('[ng-click="doAddition()"]')).click();
-        let result = element(by.cssContainingText('.ng-binding', '3'));
-        expect(result.getText()).toEqual('3');
+        // element(by.buttonText('Go!')).click();
+        var button = element(by.buttonText('Go!')).getAttribute('id');
+        button.then(idValue => { console.log("The id value for Go button is : " + idValue); })
+        
+        // Check Result Way 1 :
+        // let result = element(by.cssContainingText('.ng-binding', '3'));
+        // expect(result.getText()).toEqual('3');
+
+        // Check Result Way 2:
+        expect(element(by.binding('latest')).getText()).toEqual('3');
         browser.sleep(2000);
        
     });
@@ -81,5 +98,33 @@ describe('Second Test Suite', function(){
 xdescribe('Third Test Suite', function(){
     it('First test case', function(){
         console.log("3 Test Suite - First test case")
+        // browser.driver.get('');
+        // browser.sleep(2000);
+        // For Calender :
+        // browser.executeScript("document.getElementById('').value='01/20/2020'");   
+        // browser.sleep(2000);
+    })
+
+    it('Second test case', function(){
+        console.log("3 Test Suite - Second test case")
+        browser.driver.get('https://ng-bootstrap.github.io/#/components/tooltip/examples');
+        browser.sleep(2000);
+        
+        // Mouse actions :
+        // tooltip :
+        var button = element(by.css("button[ngbtooltip='Tooltip on top']"));
+        browser.actions().mouseMove(button).perform();
+        // Double Click :
+        // browser.actions().mouseMove(button).doubleClick().perform();
+        // browser.actions().doubleClick(button).perform();
+
+        // Keyboard action :
+        // element(by.model('xyz')).sendKeys(protractor.Key.ENTER);
+        
+        browser.sleep(2000);
+    })
+
+    fit('Third test case', function(){
+        console.log("3 Test Suite - Third test case") 
     })
 });
