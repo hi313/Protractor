@@ -1,6 +1,6 @@
 // Test Suite :
-// Only those test suite will be executed which have "f" before describe :
-fdescribe('calculator website', function () {
+// Only those Test Suites will be executed which have "f" before describe.
+fdescribe('1 Test Suite', function () {
 
     browser.manage().window().maximize();
     //browser.manage().timeouts().implicitlyWait(30000);
@@ -14,10 +14,11 @@ fdescribe('calculator website', function () {
     })
 
     // Test cases or Scripts :
-    // Only focussed test case will be executed - "fit"
-    fit('test case 1', function () {
+    // Only those test cases will be executed which have "f" before "it".
+    fit('1 Test case', function () {
         
         browser.get('http://juliemr.github.io/protractor-demo/');
+        // browser.driver.get('url');     // Only for non Angular websites.
 
         browser.getTitle().then(title => { console.log("The Page Title is : " + title); })
         expect(browser.getTitle()).toEqual('Super Calculator');
@@ -62,7 +63,7 @@ fdescribe('calculator website', function () {
         console.log("1 Test Suite - Second Test Case")
     })
 
-    // this test case will be temporarily disabled because it has "x" before it :
+    // this test case is temporarily disabled because it has "x" before "it".
     xit('Third test case', function(){
         console.log("1 Test Suite - Third Test Case")
     })
@@ -76,8 +77,8 @@ fdescribe('calculator website', function () {
     })
 });
 
-// this will not be displayed because it does not have focuss "f" before describe :
-describe('Second Test Suite', function(){
+// This Test Suite will not be executed because it does not have focuss "f" before "describe".
+describe('2 Test Suite', function(){
     it('First test case', function(){
         console.log("2 Test Suite - First test case")
         var a = true;
@@ -94,27 +95,18 @@ describe('Second Test Suite', function(){
     })
 });
 
-// This is temporarily disabled as it has "x" before describe :
+// This is temporarily disabled as it has "x" before "describe".
 // var fs = require('fs')      // only for Screen shot for full page.
-xdescribe('Third Test Suite', function(){
-    it('First test case', function(){
-        console.log("3 Test Suite - First test case")
-        // browser.driver.get('');
-        // browser.sleep(2000);
+xdescribe('3 Test Suite', function(){
+    it('3 Test Suite - 1 test case', function(){
         // For Calender :
-        // browser.executeScript("document.getElementById('').value='01/20/2020'");   
-        // browser.sleep(2000);
-    })
-
-    it('Second test case', function(){
-        console.log("3 Test Suite - Second test case")
-        browser.driver.get('https://ng-bootstrap.github.io/#/components/tooltip/examples');
-        browser.sleep(2000);
+        // browser.executeScript("document.getElementById('Here come element location').value='01/20/2020'");
         
         // Mouse actions :
-        // tooltip :
-        var button = element(by.css("button[ngbtooltip='Tooltip on top']"));
-        browser.actions().mouseMove(button).perform();
+        // Display Tool Tip :
+        // var button = "Here locate element";
+        // browser.actions().mouseMove(button).perform();
+        
         // Double Click :
         // browser.actions().mouseMove(button).doubleClick().perform();
         // browser.actions().doubleClick(button).perform();
@@ -155,12 +147,31 @@ xdescribe('Third Test Suite', function(){
             // stream.write(new Buffer(element, 'base64'));
             // stream.end(); })
         
-        browser.sleep(2000);
-    })
-
-    fit('Third test case', function(){
-        console.log("3 Test Suite - Third test case") 
-
-
+        // Drag and Drop :
+        // var source = "Here locate element";
+        // var destination = "Here locate element";
+        // browser.actions().dragAndDrop(source,destination).perform();
     })
 });
+
+// Read data from JSON file :
+// var data = require('../Json file/first.json')
+// describe("4 Test Suite", function(){
+    // it("4 Test Suite - 1 Test case", function(){
+        // console.log(data.url);
+        // console.log(data.credentials.username);
+    // })
+// })
+
+// Generate Fake or Random Data :
+// install : npm i faker
+// var faker = require('faker');
+// describe("5 Test Suite", function(){
+    // it("5 Test Suite - 1 Test case", function(){
+        // console.log(faker.name.firstName());
+        // console.log(faker.name.lastName());
+        // console.log(faker.phone.phoneNumber());
+        // console.log(faker.address.city());
+        // console.log(faker.internet.email());
+    // })
+// })
