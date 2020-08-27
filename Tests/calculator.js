@@ -95,6 +95,7 @@ describe('Second Test Suite', function(){
 });
 
 // This is temporarily disabled as it has "x" before describe :
+// var fs = require('fs')      // only for Screen shot for full page.
 xdescribe('Third Test Suite', function(){
     it('First test case', function(){
         console.log("3 Test Suite - First test case")
@@ -121,10 +122,45 @@ xdescribe('Third Test Suite', function(){
         // Keyboard action :
         // element(by.model('xyz')).sendKeys(protractor.Key.ENTER);
         
+        // Alert, Popup :
+        // browser.switchTo().alert().getText().then(text =>{ console.log("Alert Text is : " + text); })
+        // browser.switchTo().alert().accept();   // it will click "OK" button.
+        // browser.switchTo().alert().dismiss();  // it will click "CANCEL" button.
+
+        // Frame :
+        // browser.switchTo().frame(0);
+
+        // New Tab Window :
+        // var winHandles = browser.getAllWindowHandles();
+        // winHandles.then(function(handles){
+            // var parentWindow = handles[0];
+            // var tabWindow = handles[1];
+            // browser.waitForAngularEnabled(false);  // only for non angular applications.
+            // browser.switchTo().window(tabWindow);
+            // browser.getTitle().then(title => { console.log("New Tab Window Title is : " + title); })
+            // browser.close();   // it will close currently focused window.
+            // browser.switchTo().window(parentWindow);
+        // })
+
+        // Screen shot for full page :
+        // browser.takeScreenshot().then(function(fullPage){
+            // var stream = fs.createWriteStream('./Screen shot/Full page.png');
+            // stream.write(new Buffer(fullPage, 'base64'));
+            // stream.end(); })
+        
+        // Screen shot for any element in page :
+        // var logo = "Here locate element";
+        // logo.takeScreenshot().then(function(element){
+            // var stream = fs.createWriteStream('./Screen shot/Element.png');
+            // stream.write(new Buffer(element, 'base64'));
+            // stream.end(); })
+        
         browser.sleep(2000);
     })
 
     fit('Third test case', function(){
         console.log("3 Test Suite - Third test case") 
+
+
     })
 });
