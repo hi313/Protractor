@@ -1,12 +1,17 @@
+// Only use to show Code suggestions.
+// import { browser, element, by } from "protractor";
+
 // Test Suite :
 // Only those Test Suites will be executed which have "f" before describe.
 fdescribe('1 Test Suite', function () {
 
-    browser.manage().window().maximize();
     //browser.manage().timeouts().implicitlyWait(30000);
 
     beforeAll(function(){
         console.log('It is displayed only once before all test cases');
+        browser.get('http://juliemr.github.io/protractor-demo/');
+     // browser.driver.get('url');     // Only for non Angular websites.
+        browser.manage().window().maximize();
     })
 
     beforeEach(function(){
@@ -17,9 +22,6 @@ fdescribe('1 Test Suite', function () {
     // Only those test cases will be executed which have "f" before "it".
     fit('1 Test case', function () {
         
-        browser.get('http://juliemr.github.io/protractor-demo/');
-        // browser.driver.get('url');     // Only for non Angular websites.
-
         browser.getTitle().then(title => { console.log("The Page Title is : " + title); })
         expect(browser.getTitle()).toEqual('Super Calculator');
         browser.getCurrentUrl().then(url => { console.log("The Current URL is : " + url); })
@@ -42,6 +44,11 @@ fdescribe('1 Test Suite', function () {
         // element.all(by.options('value for (key, value) in operators')).get(0).click();
         // browser.sleep(2000);
 
+        // Drop Down Way 4 :
+        // When "div Class" is present :  
+        // $('.hi1.hi2').click();                                                      // eg: class name = hi1 hi2
+        // element(by.cssContainingText('div.class name', 'option name')).click();
+                
         element(by.model('second')).sendKeys('2');
         element(by.css('[ng-click="doAddition()"]')).click();
         // element(by.buttonText('Go!')).click();
@@ -174,4 +181,39 @@ xdescribe('3 Test Suite', function(){
         // console.log(faker.address.city());
         // console.log(faker.internet.email());
     // })
+// })
+
+// Async - Await : another way to get title.
+// describe('6 Test Suite', () => {
+    // it('6 Test Suite - 1 Test case', async() => {
+        // browser.get("http://juliemr.github.io/protractor-demo/")
+        // console.log(await browser.getTitle());
+    // })
+// })
+
+// Get value from a Input Field.
+// Confirm Text Box is not editable.
+// describe('7 Test Suite', () => {
+    // it('get value from Input Field', async() => {
+        // let getMe = "Here comes element location".
+        // let value = await getMe.getAttribute("value");
+        // console.log(value);
+    // });
+
+    // it('Confirm Text Box is not editable', async() => {
+        // let isEditable = element(by.model('operator')).isEnabled();
+        // console.log(await isEditable);
+        // expect(isEditable).toBe(false);
+    // });
+
+    // it('Get Position, Height, Width', async() => {
+        // element(by.id("idname")) = $('#idname').
+        // element(by.class(classname)) = $('.classname').
+        // let location = $('#button2').getLocation();
+        // let size = await element(by.buttonText('Submit')).getSize();
+        // console.log(location.x);
+        // console.log(location.y);
+        // console.log(size.height);
+        // console.log(size.width);
+    // });
 // })

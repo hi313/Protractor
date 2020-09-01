@@ -1,3 +1,10 @@
+// Only use to get Tips and Help.
+// npm i --save-dev babel-preset-env
+// npm i --save-dev babel-register
+require("babel-register")({
+  presets: ["env"]
+});
+
 // Only used to take Screen shots :
 var HtmlScreenshotReporter = require("protractor-jasmine2-screenshot-reporter");
 
