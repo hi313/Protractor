@@ -1,6 +1,7 @@
 // Only use to get Tips and Help.
 // npm i --save-dev babel-preset-env
 // npm i --save-dev babel-register
+// npm i -D babel-core babel-polyfill babel-preset-es2015 babel-preset-stage-0 babel-loader
 require("babel-register")({
   presets: ["env"]
 });

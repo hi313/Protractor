@@ -1,34 +1,35 @@
 // Only use to show Code suggestions.
 // import { browser, element, by } from "protractor";
+import 'babel-polyfill';                                                         // Used only for Async - Await. 
 
 // Test Suite :
 // Only those Test Suites will be executed which have "f" before describe.
-fdescribe('1 Test Suite', function () {
+//fdescribe('1 Test Suite', function () {
 
     //browser.manage().timeouts().implicitlyWait(30000);
 
-    beforeAll(function(){
-        console.log('It is displayed only once before all test cases');
-        browser.get('http://juliemr.github.io/protractor-demo/');
-     // browser.driver.get('url');     // Only for non Angular websites.
-        browser.manage().window().maximize();
-    })
+    //beforeAll(function(){
+        // console.log('It is displayed only once before all test cases');
+        // browser.get('http://juliemr.github.io/protractor-demo/');
+        // browser.driver.get('url');     // Only for non Angular websites.
+        // browser.manage().window().maximize();
+    // })
 
-    beforeEach(function(){
-        console.log('It is displayed every time before each test cases');
-    })
+    // beforeEach(function(){
+        // console.log('It is displayed every time before each test cases');
+    // })
 
     // Test cases or Scripts :
     // Only those test cases will be executed which have "f" before "it".
-    fit('1 Test case', function () {
+    //fit('1 Test case', function () {
         
-        browser.getTitle().then(title => { console.log("The Page Title is : " + title); })
-        expect(browser.getTitle()).toEqual('Super Calculator');
-        browser.getCurrentUrl().then(url => { console.log("The Current URL is : " + url); })
-        var text = element(by.tagName('h3')).getText();
-        text.then(elementText =>{ console.log("Heading is: " + elementText); })
+        // browser.getTitle().then(title => { console.log("The Page Title is : " + title); })
+        // expect(browser.getTitle()).toEqual('Super Calculator');
+        // browser.getCurrentUrl().then(url => { console.log("The Current URL is : " + url); })
+        // var text = element(by.tagName('h3')).getText();
+        // text.then(elementText =>{ console.log("Heading is: " + elementText); })
         
-        element(by.model('first')).sendKeys('1');
+        // element(by.model('first')).sendKeys('1');
         // element(by.model('first')).clear();
         
         // Only When "ng-model" or "ng-options" or "option" is present :
@@ -49,40 +50,40 @@ fdescribe('1 Test Suite', function () {
         // $('.hi1.hi2').click();                                                      // eg: class name = hi1 hi2
         // element(by.cssContainingText('div.class name', 'option name')).click();
                 
-        element(by.model('second')).sendKeys('2');
-        element(by.css('[ng-click="doAddition()"]')).click();
+        // element(by.model('second')).sendKeys('2');
+        // element(by.css('[ng-click="doAddition()"]')).click();
         // element(by.buttonText('Go!')).click();
-        var button = element(by.buttonText('Go!')).getAttribute('id');
-        button.then(idValue => { console.log("The id value for Go button is : " + idValue); })
+        // var button = element(by.buttonText('Go!')).getAttribute('id');
+        // button.then(idValue => { console.log("The id value for Go button is : " + idValue); })
         
         // Check Result Way 1 :
         // let result = element(by.cssContainingText('.ng-binding', '3'));
         // expect(result.getText()).toEqual('3');
 
         // Check Result Way 2:
-        expect(element(by.binding('latest')).getText()).toEqual('3');
-        browser.sleep(2000);
+        // expect(element(by.binding('latest')).getText()).toEqual('3');
+        // browser.sleep(2000);
        
-    });
+    // });
 
     // this test case will not be displayed because it does not have focuss "f" before it :
-    it('Second test case', function(){
-        console.log("1 Test Suite - Second Test Case")
-    })
+    // it('Second test case', function(){
+        // console.log("1 Test Suite - Second Test Case")
+    // })
 
     // this test case is temporarily disabled because it has "x" before "it".
-    xit('Third test case', function(){
-        console.log("1 Test Suite - Third Test Case")
-    })
+    // xit('Third test case', function(){
+        // console.log("1 Test Suite - Third Test Case")
+    // })
 
-    afterEach(function(){
-        console.log('It is displayed every time after each test cases');
-    })
+    // afterEach(function(){
+        // console.log('It is displayed every time after each test cases');
+    // })
 
-    afterAll(function(){
-        console.log('It is displayed only once after all test cases');
-    })
-});
+    // afterAll(function(){
+        // console.log('It is displayed only once after all test cases');
+    // })
+// });
 
 // This Test Suite will not be executed because it does not have focuss "f" before "describe".
 describe('2 Test Suite', function(){
@@ -123,11 +124,18 @@ xdescribe('3 Test Suite', function(){
         
         // Alert, Popup :
         // browser.switchTo().alert().getText().then(text =>{ console.log("Alert Text is : " + text); })
-        // browser.switchTo().alert().accept();   // it will click "OK" button.
-        // browser.switchTo().alert().dismiss();  // it will click "CANCEL" button.
+        // browser.switchTo().alert().accept();       // it will click "OK" button.
+        // browser.switchTo().alert().dismiss();      // it will click "CANCEL" button.
+        // let alert = browser.switchTo().alert();
+        // alert.sendKeys("abc");                     // it will send text to alert.
 
         // Frame :
-        // browser.switchTo().frame(0);
+        // browser.switchTo().frame(0);                                   // Way 1
+        // browser.switchTo().frame("frame id value");                    // Way 2
+        // browser.switchTo().frame("frame name value");                  // Way 3
+        // let frameElement = element(by.xpath("abc"));
+        // browser.switchTo().frame(frameElement.getWebElement());        // Way 4
+        // browser.switchTo().defaultContent();                           // come out of frame to main window.
 
         // New Tab Window :
         // var winHandles = browser.getAllWindowHandles();
@@ -193,7 +201,7 @@ xdescribe('3 Test Suite', function(){
 
 // Get value from a Input Field.
 // Confirm Text Box is not editable.
-// describe('7 Test Suite', () => {
+// fdescribe('7 Test Suite', () => {
     // it('get value from Input Field', async() => {
         // let getMe = "Here comes element location".
         // let value = await getMe.getAttribute("value");
@@ -216,4 +224,74 @@ xdescribe('3 Test Suite', function(){
         // console.log(size.height);
         // console.log(size.width);
     // });
-// })
+
+    // Display all options of check boxes.
+    // it('Select all the fruits', () => {
+        // browser.get("https://play.letcode.in/checkbox");
+        // let allLabels = element.all(by.tagName("label"))
+        // let size = allLabels.count();
+        // let labels = allLabels.get(size);
+        // let labels = allLabels.get(-1);                               // Display Last Element
+        // let first = allLabels.first();                                // Display First Element
+        // let last = allLabels.last();                                  // Display Last Element
+        // allLabels.each(async (ele, i) => {
+            // let text = await ele.getText();
+            // console.log(text, '==>' + i);
+        // })
+        // expect(allLabels.count()).toBe(5);
+    // });
+
+    // Map - Display First Column of a table.
+    // it("Print train numbers", () => {
+        // browser.waitForAngularEnabled(false);
+        // browser.manage().timeouts().implicitlyWait(20000);
+        // browser.get("https://erail.in/trains-between-stations/mgr-chennai-ctr-MAS/ksr-bengaluru-SBC");
+        // $("#chkSelectDateOnly").click();
+        // browser.sleep(3000);
+        // let rows = $$("#divTrainsList .TrainList tr");                           // $$("css value") = element.all(by("css value")).
+        // let myTrainNumberMap = rows.map( async (ele, index) => {
+                // let firstData = ele.$$('td').get(0);
+                // console.log(await firstData.getText());
+                // return {
+                    // "trainNumber": await firstData.getText(),
+                    // "index": index
+                // }});
+        // console.log(myTrainNumberMap);
+    // });
+
+    // Filter - find unselected checkbox.
+    // it("Find unselected checkbox", () => {
+        // browser.get("https://play.letcode.in/checkbox");
+        // let checkBoxes = $$("input");
+        // console.log(checkBoxes.count());
+        // let unchecked = checkBoxes.filter(async (ele, index) => {
+            // return await ele.isSelected() == false; });
+        // unchecked.each(async ele => {
+            // console.log(await ele.isSelected()); })
+    // });
+
+    // Web table - find element inside a Table.
+    // it('table', () => {
+        // browser.get("https://play.letcode.in/table");
+        // let table = $("table#table tbody");
+        // let rows = table.$$("tr");
+        // rows.each((ele, i) => {
+            // let first = ele.$$("td").get(0);
+            // first.getText().then(t => {
+                // console.log(t)
+            // }) });
+        // let count = rows.count();
+        // console.log(count);
+        // expect(count).toBe(3);
+        // for (let i = 0; i < count; i++) {
+            // let firstTD = rows.get(i).$$("td");
+            // let firstData = firstTD.get(0);
+            // let text = firstData.getText();
+            // if (text === "Yashwanth") {
+                // let checkBox = firstTD.last().$("input");
+                // checkBox.click();
+            // } };
+        // browser.sleep(5000);
+    // });
+    
+// });
