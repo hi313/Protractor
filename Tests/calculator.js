@@ -293,5 +293,13 @@ xdescribe('3 Test Suite', function(){
             // } };
         // browser.sleep(5000);
     // });
-    
+
+    // Mouse Right Click.
+    // it("Right Click", async () => {
+        // browser.get("https://play.letcode.in/contextmenu");
+        // browser.sleep(3000);
+        // let btn = $("app-context-menu button");
+        // browser.actions().click(await btn.getWebElement(),protractor.Button.RIGHT).perform();
+    // });
+
 // });
