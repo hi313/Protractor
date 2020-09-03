@@ -22,11 +22,19 @@ exports.config = {
   capabilities: {
     browserName: "chrome",
     // browserName: "firefox",
+    // shardTestFiles: true,                                                   // Only used to run files Parallelly.
+    // maxInstances: 2                                                         // Only used to run files Parallelly.
     
     // To run without UI :
     // chromeOptions: { args: [ "--headless" ] }
     // 'moz:firefoxOptions': { args: [ "--headless" ] }
   },
+
+  // Only used to run file in Multiple Browsers.
+  // multiCapabilities: [
+    // { "browserName": "chrome" },
+    // { "browserName": "firefox" }
+  // ]
 
   // Framework to use. Jasmine is recommended.
   framework: "jasmine",
@@ -34,9 +42,9 @@ exports.config = {
   // Spec patterns are relative to the current working directory when
   // protractor is called.
 
-  // specs: ['../Tests/example_spec.js'],
   specs: ['../Tests/calculator.js'],
-  // specs: ["../Tests/calculatorPOM.js"],
+  // specs: ['../Tests/file 1.js', '../Tests/file 2.js'],                      // Only used to run files Parallelly.
+  // specs: ['../Tests/*.js'],                                                 // Only used to run all files Sequentially (one by one).
 
   // Options to be passed to Jasmine.
   jasmineNodeOpts: {

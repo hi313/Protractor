@@ -111,13 +111,25 @@ xdescribe('3 Test Suite', function(){
         // browser.executeScript("document.getElementById('Here come element location').value='01/20/2020'");
         
         // Mouse actions :
-        // Display Tool Tip :
+        // Mouse Hover :
         // var button = "Here locate element";
         // browser.actions().mouseMove(button).perform();
         
         // Double Click :
         // browser.actions().mouseMove(button).doubleClick().perform();
         // browser.actions().doubleClick(button).perform();
+
+        // Multi-Select :
+        // let element1 = "Here locate element";
+        // let element2 = "Here locate element";
+        // let element3 = "Here locate element";
+        // browser.actions().sendKeys(protractor.Key.CONTROL).click(element1).click(element2).click(element3).perform();
+
+        // Click & Hold :
+        // let ele = "Here locate element";
+        // browser.actions().mouseDown(ele).perform();
+        // browser.sleep(3000);
+        // browser.actions().mouseUp(ele).perform();
 
         // Keyboard action :
         // element(by.model('xyz')).sendKeys(protractor.Key.ENTER);
@@ -166,6 +178,11 @@ xdescribe('3 Test Suite', function(){
         // var source = "Here locate element";
         // var destination = "Here locate element";
         // browser.actions().dragAndDrop(source,destination).perform();
+        // Way 2:
+        // let src = $("#id name");
+        // let locationX = (src.getLocation()).x;
+        // let locationY = (src.getLocation()).y;
+        // browser.actions().dragAndDrop(await src.getWebElement(), { x: locationX + 30, y: locationY + 50 }).perform();
     })
 });
 
