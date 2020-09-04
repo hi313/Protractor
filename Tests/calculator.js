@@ -319,4 +319,15 @@ xdescribe('3 Test Suite', function(){
         // browser.actions().click(await btn.getWebElement(),protractor.Button.RIGHT).perform();
     // });
 
+    // Expected Conditions - Wait.
+    //it("wait", async () => {
+        // let ec = browser.ExpectedConditions;
+        // let mi = "Here comes element location".
+        // await browser.wait(ec.alertIsPresent(), 5000, 'Waiting for an alert');          // Wait till Alert is displayed.
+        // (await browser.switchTo().alert()).accept()
+        // await browser.wait(ec.elementToBeClickable(mi), 5000)                           // Wait till Element is displayed.
+        // await browser.wait(ec.titleContains("Mi Mobile"), 5000)                         // Wait till Title is displayed.
+        // expect(await browser.getTitle()).toContain("Mi Mobile")
+    // })
+
 // });
